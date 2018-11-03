@@ -1,4 +1,5 @@
 let isPrime = (num) => {
+    if (num <= 0) return false;
     for (let i=2; i<=Math.pow(num,0.5); i++) {
         if (num % i == 0) return false;
     }
@@ -51,6 +52,11 @@ let isPalindrome = (num) => {
     return true;
 }
 
+let sum = (arr) => {
+    if (arr.length == 0) return 0;
+    return arr.reduce((a,b) => a+b);
+}
+
 let pad_zeros = (str,len) => {
     if (str.length >= len) return str;
     else {
@@ -100,6 +106,7 @@ let strMult = (str1,str2) => {
     return eachRound.reduce((a,b) => strAdd(a,b));
 }
 
+
 let strAdd = (str1,str2) => {
     let larger_len = Math.max(str1.length, str2.length)
     str1 = pad_zeros(str1,larger_len)
@@ -124,6 +131,11 @@ let strAdd = (str1,str2) => {
         result = val + result;
     }
     return result;
+}
+
+let factorial = (num) => {
+    if (num == 1 || num == 0) return 1;
+    else return num * factorial(num-1);
 }
 
 let multByTwo = (str) => {
@@ -156,5 +168,7 @@ module.exports = {
     strMultOne: strMultOne,
     strMult: strMult,
     getProperDivisors: getProperDivisors,
-    sumProperDivisors: sumProperDivisors
+    sumProperDivisors: sumProperDivisors,
+    sum: sum,
+    factorial: factorial
 }
